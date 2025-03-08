@@ -15,8 +15,8 @@ const { Pesepay } = require('pesepay');
 
 // const resultUrl = 'http://localhost:3000/dashboard'; // Update with your result URL
 // const returnUrl = 'http://localhost:3000/dashboard'; // Update with your return URL
-const resultUrl = 'https://tantak-portal.netlify.app/dashboard'; // Update with your result URL
-const returnUrl = 'https://tantak-portal.netlify.app/dashboard'; // Update with your return URL
+const resultUrl = 'https://datingradar.tankak.tech/home'; // Update with your result URL
+const returnUrl = 'https://datingradar.tankak.tech/home'; // Update with your return URL
 const pesepayInstance = new Pesepay("96aa2f37-063a-4b4f-ae30-c6332e985db8", "f3e0d62f7b6640f5b3fef5e8d545278e");
 
 // Auth
@@ -298,19 +298,19 @@ app.get('/initiate-payment/:member_id/:amount/:exp_date/:ref', async (req, res) 
 });
 
 
-// Load SSL certificates
-const options = {
-  key: fs.readFileSync('/etc/letsencrypt/live/srv702611.hstgr.cloud/privkey.pem'),
-  cert: fs.readFileSync('/etc/letsencrypt/live/srv702611.hstgr.cloud/fullchain.pem')
-};
+// // Load SSL certificates
+// const options = {
+//   key: fs.readFileSync('/etc/letsencrypt/live/srv702611.hstgr.cloud/privkey.pem'),
+//   cert: fs.readFileSync('/etc/letsencrypt/live/srv702611.hstgr.cloud/fullchain.pem')
+// };
 
-// Create HTTPS server
-const PORT = process.env.APPPORT || '3009';
-https.createServer(options, app).listen(PORT, () => {
-  console.log(`App is listening on https://srv702611.hstgr.cloud:${PORT}`);
-});
-
-
-// app.listen(process.env.APPPORT || '3009', () => {
-//   console.log('app is listening to port' + process.env.APPPORT);
+// // Create HTTPS server
+// const PORT = process.env.APPPORT || '3009';
+// https.createServer(options, app).listen(PORT, () => {
+//   console.log(`App is listening on https://srv702611.hstgr.cloud:${PORT}`);
 // });
+
+
+app.listen(process.env.APPPORT || '3009', () => {
+  console.log('app is listening to port' + process.env.APPPORT);
+});
