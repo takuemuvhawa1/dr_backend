@@ -298,19 +298,19 @@ app.get('/initiate-payment/:member_id/:amount/:exp_date/:ref', async (req, res) 
 });
 
 
-// // Load SSL certificates
-// const options = {
-//   key: fs.readFileSync('/etc/letsencrypt/live/srv702611.hstgr.cloud/privkey.pem'),
-//   cert: fs.readFileSync('/etc/letsencrypt/live/srv702611.hstgr.cloud/fullchain.pem')
-// };
+// Load SSL certificates
+const options = {
+  key: fs.readFileSync('/etc/letsencrypt/live/srv702611.hstgr.cloud/privkey.pem'),
+  cert: fs.readFileSync('/etc/letsencrypt/live/srv702611.hstgr.cloud/fullchain.pem')
+};
 
-// // Create HTTPS server
-// const PORT = process.env.APPPORT || '3009';
-// https.createServer(options, app).listen(PORT, () => {
-//   console.log(`App is listening on https://srv702611.hstgr.cloud:${PORT}`);
-// });
-
-
-app.listen(process.env.APPPORT || '3009', () => {
-  console.log('app is listening to port' + process.env.APPPORT);
+// Create HTTPS server
+const PORT = process.env.APPPORT || '3009';
+https.createServer(options, app).listen(PORT, () => {
+  console.log(`App is listening on https://srv702611.hstgr.cloud:${PORT}`);
 });
+
+
+// app.listen(process.env.APPPORT || '3009', () => {
+//   console.log('app is listening to port' + process.env.APPPORT);
+// });
